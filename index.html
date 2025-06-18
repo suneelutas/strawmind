@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University of Technology and Applied Sciences - Shinas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin-right: 30px;
+            object-fit: contain;
+        }
+
+        .header-text {
+            text-align: center;
+        }
+
+        .university-title {
+            font-size: 2.2em;
+            color: #081E3F;
+            margin-bottom: 2px;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        .event-title {
+            font-size: 1.8em;
+            color: #FF7601;
+            margin-bottom: 2px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .event-date {
+            font-size: 1.1em;
+            color: #64748b;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .navigation {
+            background: linear-gradient(135deg, #081E3F, #0a2347);
+            border-radius: 50px;
+            padding: 0;
+            margin: 30px 0;
+            box-shadow: 0 4px 15px rgba(8, 30, 63, 0.3);
+            position: relative;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            padding: 15px 20px;
+            cursor: pointer;
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .nav-tabs {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            align-items: center;
+            min-height: 60px;
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            flex: 1;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .nav-tab a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 18px 15px;
+            font-weight: 600;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            border-radius: 25px;
+            margin: 0 2px;
+        }
+
+        .nav-tab a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .main-content {
+            margin-top: 30px;
+        }
+
+        .content-area {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .call-for-papers {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-left: 5px solid #3b82f6;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+
+        .call-for-papers h2 {
+            color: #081E3F;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .call-for-papers p {
+            color: #475569;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .welcome-content {
+            text-align: center;
+        }
+
+        .welcome-content h2 {
+            color: #081E3F;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .welcome-content p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-left: 5px solid #3b82f6;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+
+        .highlight-box h3 {
+            color: #FF7601;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .highlight-box p {
+            color: #475569;
+            font-size: 1em;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .back-btn {
+            background: #3b82f6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            font-size: 1em;
+        }
+
+        .back-btn:hover {
+            background: #2563eb;
+        }
+
+        .external-link {
+            background: #059669;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .external-link:hover {
+            background: #047857;
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            height: 400px;
+            margin: 20px auto 40px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .contact-info h2 {
+            color: #081E3F;
+            margin-bottom: 30px;
+            font-size: 2em;
+            text-align: center;
+        }
+
+        .contact-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .contact-item h3 {
+            color: #FF7601;
+            margin-bottom: 10px;
+        }
+
+        .contact-item p {
+            color: #64748b;
+            margin-bottom: 5px;
+        }
+
+        .footer {
+            background-color: #374151;
+            color: white;
+            padding: 40px 0;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .footer h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #e2e8f0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-item {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .footer-item i {
+            margin-right: 10px;
+            color: #3b82f6;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            
+            .logo {
+                margin-right: 0;
+                margin-bottom: 20px;
+                width: 80px;
+                height: 80px;
+            }
+            
+            .university-title {
+                font-size: 1.6em;
+            }
+            
+            .event-title {
+                font-size: 1.3em;
+            }
+
+            .event-date {
+                font-size: 0.9em;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+                height: auto;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                padding: 0;
+            }
+
+            .nav-tabs.show {
+                max-height: 500px;
+                padding: 20px 0;
+            }
+            
+            .nav-tab {
+                width: 100%;
+                margin: 5px 0;
+            }
+
+            .nav-tab a {
+                margin: 0;
+                border-radius: 8px;
+            }
+
+            .content-area {
+                padding: 20px;
+            }
+
+            .slideshow-container {
+                height: 250px;
+                margin: 20px auto;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header (consistent across all pages) -->
+        <header class="header">
+            <img src="image/logo.jpg" alt="UTAS Logo" class="logo">
+            <div class="header-text">
+                <h1 class="university-title">University of Technology and Applied Sciences - Shinas</h1>
+                <h2 class="event-title">International Multidisciplinary Research Colloquium - 2025</h2>
+                                    <p class="event-date">May 14, 2025, Virtual</p>
+            </div>
+        </header>
+
+        <!-- Navigation (consistent across all pages) -->
+        <nav class="navigation">
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-tabs" id="navTabs">
+                <li class="nav-tab"><a href="#" onclick="showPage('main-page')">Home</a></li>
+                <li class="nav-tab"><a href="#" onclick="showPage('about-us')">About Us</a></li>
+                <li class="nav-tab"><a href="#" onclick="showPage('imrc-2025')">IMRC-2025</a></li>
+                <li class="nav-tab"><a href="#" onclick="showPage('publication-policy')">Publication Policy</a></li>
+                <li class="nav-tab"><a href="#" onclick="showPage('authors-guidelines')">Authors' Guidelines</a></li>
+                <li class="nav-tab"><a href="#" onclick="showPage('submit-paper')">Submit Your Paper</a></li>
+                <li class="nav-tab"><a href="#gallery">Photo Gallery</a></li>
+                <li class="nav-tab"><a href="#" onclick="showPage('contact')">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Page -->
+        <div id="main-page" class="page active">
+            <!-- Slideshow -->
+            <div class="slideshow-container">
+                <div class="slide active">
+                    <img src="image/image1.jpg" alt="University Campus">
+                </div>
+                <div class="slide">
+                    <img src="image/image2.jpg" alt="Academic Event">
+                </div>
+                <div class="slide">
+                    <img src="image/image3.jpg" alt="Conference">
+                </div>
+            </div>
+
+            <div class="main-content">
+                <main class="content-area">
+                    <div class="call-for-papers">
+                        <h2>Call for Papers</h2>
+                        <p>We invite submissions for publication in our journal as part of the International Multidisciplinary Research Colloquium - 2025. Please refer to the publication policy and authors' guidelines before submitting your paper. We look forward to your valuable contributions!</p>
+                    </div>
+                    
+                    <div class="welcome-content">
+                        <h2>Welcome to IMRC-2025</h2>
+                        <p>We cordially invite researchers, academicians, and industry professionals to submit their research papers for the International Multidisciplinary Research Colloquium 2025. This prestigious event brings together minds from diverse fields to share knowledge and foster collaboration.</p>
+                        
+                        <div class="highlight-box">
+                            <h3>Research Excellence</h3>
+                            <p>Submit your original research papers across all disciplines. We welcome contributions from engineering, sciences, humanities, business, and interdisciplinary studies. Join us in advancing knowledge and innovation through collaborative research.</p>
+                        </div>
+                        
+                        <p>The colloquium will be conducted virtually via Microsoft Teams, ensuring global participation and accessibility. Don't miss this opportunity to showcase your research and connect with fellow researchers worldwide.</p>
+                        
+                        <div class="highlight-box">
+                            <h3>Submission Guidelines</h3>
+                            <p>Please review our publication policy and authors' guidelines before submitting your paper. All submissions will undergo a rigorous peer-review process to maintain the highest academic standards.</p>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <!-- IMRC-2025 Page -->
+        <div id="imrc-2025" class="page">
+            <div class="content-area">
+                <h1 style="color: #1e40af; margin-bottom: 30px;">International Multidisciplinary Research Colloquium - 2025</h1>
+                
+                <div style="text-align: justify; line-height: 1.8;">
+                    <div class="highlight-box" style="margin-bottom: 30px;">
+                        <h3>IMRC-2025 Overview</h3>
+                        <p>The International Multidisciplinary Research Colloquium (IMRC-2025) hosted by University of Technology and Applied Sciences - Shinas brought together researchers, academicians, and industry professionals to share knowledge, exchange ideas, and present innovative research across multiple disciplines. The colloquium was held on <strong>May 14, 2025</strong> via MS Teams. It aimed to foster collaboration and promote cutting-edge research that addresses real-world challenges.</p>
+                    </div>
+
+                    <div class="call-for-papers" style="margin-bottom: 30px;">
+                        <h2>Research Paper Submissions</h2>
+                        <p>We invite submissions of original research papers, case studies, and reviews from all fields including Engineering, Information Technology, Business Studies, and more. Selected papers will be considered for publication as part of our IMRC-2025 journal edition.</p>
+                    </div>
+
+                    <h3 style="color: #2563eb; margin-top: 30px; margin-bottom: 20px;">Event Highlights</h3>
+                    <p style="margin-bottom: 20px;">The colloquium successfully facilitated knowledge sharing and idea exchange among participants from around the world. The virtual format via Microsoft Teams ensured global accessibility and participation, breaking geographical barriers and enabling diverse research communities to connect and collaborate.</p>
+
+                    <div class="highlight-box" style="margin: 30px 0;">
+                        <h3>Research Excellence</h3>
+                        <p>The event showcased cutting-edge research that addresses real-world challenges facing our communities and industries. Participants presented innovative solutions and methodologies across various disciplines, contributing to the advancement of knowledge and practical applications.</p>
+                    </div>
+
+                    <h3 style="color: #2563eb; margin-top: 30px; margin-bottom: 20px;">Key Achievements</h3>
+                    <div style="margin: 20px 0;">
+                        <ul style="margin-left: 30px; line-height: 1.8;">
+                            <li><strong>Global Participation:</strong> Researchers from multiple countries participated virtually</li>
+                            <li><strong>Multidisciplinary Approach:</strong> Presentations covered various academic and industry sectors</li>
+                            <li><strong>Industry-Academia Collaboration:</strong> Enhanced partnerships between educational institutions and industry</li>
+                            <li><strong>Knowledge Exchange:</strong> Facilitated meaningful discussions on contemporary research challenges</li>
+                            <li><strong>Publication Opportunities:</strong> Selected papers considered for publication in our peer-reviewed journal</li>
+                            <li><strong>Networking:</strong> Established research collaborations and academic partnerships</li>
+                        </ul>
+                    </div>
+
+                    <h3 style="color: #2563eb; margin-top: 30px; margin-bottom: 20px;">Research Areas Covered</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 20px 0;">
+                        <div style="background: #f0f9ff; padding: 15px; border-radius: 8px; border-left: 4px solid #0ea5e9;">
+                            <h4 style="color: #0c4a6e; margin-bottom: 8px;">Engineering Sciences</h4>
+                            <p style="color: #64748b; font-size: 0.9em;">Civil, Mechanical, Electrical, Chemical Engineering</p>
+                        </div>
+                        <div style="background: #f0fdf4; padding: 15px; border-radius: 8px; border-left: 4px solid #22c55e;">
+                            <h4 style="color: #14532d; margin-bottom: 8px;">Information Technology</h4>
+                            <p style="color: #64748b; font-size: 0.9em;">Computer Science, Data Analytics, AI, Cybersecurity</p>
+                        </div>
+                        <div style="background: #fefce8; padding: 15px; border-radius: 8px; border-left: 4px solid #eab308;">
+                            <h4 style="color: #713f12; margin-bottom: 8px;">Business Studies</h4>
+                            <p style="color: #64748b; font-size: 0.9em;">Management, Finance, Marketing, Entrepreneurship</p>
+                        </div>
+                        <div style="background: #fdf2f8; padding: 15px; border-radius: 8px; border-left: 4px solid #ec4899;">
+                            <h4 style="color: #831843; margin-bottom: 8px;">Social Sciences</h4>
+                            <p style="color: #64748b; font-size: 0.9em;">Education, Psychology, Sociology, Applied Sciences</p>
+                        </div>
+                        <div style="background: #f3e8ff; padding: 15px; border-radius: 8px; border-left: 4px solid #a855f7;">
+                            <h4 style="color: #581c87; margin-bottom: 8px;">Environmental Studies</h4>
+                            <p style="color: #64748b; font-size: 0.9em;">Sustainability, Climate Change, Green Technology</p>
+                        </div>
+                        <div style="background: #fef3c7; padding: 15px; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                            <h4 style="color: #92400e; margin-bottom: 8px;">Interdisciplinary Research</h4>
+                            <p style="color: #64748b; font-size: 0.9em;">Cross-sector studies, Innovation, Applied Research</p>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box" style="margin: 30px 0;">
+                        <h3>Publication Process</h3>
+                        <p>All submitted research papers undergo a rigorous peer-review process to maintain the highest academic standards. Selected high-quality papers are considered for publication as part of our IMRC-2025 journal edition, ensuring wide dissemination of valuable research contributions to the global academic community.</p>
+                    </div>
+
+                    <h3 style="color: #2563eb; margin-top: 30px; margin-bottom: 20px;">Future Collaborations</h3>
+                    <p style="margin-bottom: 20px;">Based on the success of IMRC-2025, we continue to welcome research collaborations and academic partnerships throughout the year. The event has established a foundation for ongoing knowledge exchange and collaborative research initiatives that address contemporary challenges across multiple disciplines.</p>
+
+                    <div style="background: #eff6ff; padding: 25px; border-radius: 10px; margin: 30px 0; text-align: center;">
+                        <h3 style="color: #1e40af; margin-bottom: 15px;">Thank You to All Participants</h3>
+                        <p style="color: #475569; font-size: 1.1em;">We extend our sincere appreciation to all researchers, academicians, and industry professionals who participated in IMRC-2025. Your valuable contributions have enriched the global research community and advanced knowledge across multiple disciplines.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- IMRC-2025 Page -->
+        <div id="imrc-2025" class="page">
+            <div class="content-area">
+                <h1 style="color: #081E3F; margin-bottom: 30px;">International Multidisciplinary Research Colloquium - 2025</h1>
+                
+                <div style="text-align: justify; line-height: 1.8;">
+                    <div class="highlight-box" style="margin-bottom: 30px;">
+                        <h3>IMRC-2025 Overview</h3>
+                        <p>The International Multidisciplinary Research Colloquium (IMRC-2025) hosted by University of Technology and Applied Sciences - Shinas brought together researchers, academicians, and industry professionals to share knowledge, exchange ideas, and present innovative research across multiple disciplines. The colloquium was held on <strong>May 14, 2025</strong> via MS Teams. It aimed to foster collaboration and promote cutting-edge research that addresses real-world challenges.</p>
+                    </div>
+
+                    <div class="call-for-papers" style="margin-bottom: 30px;">
+                        <h2>Research Paper Submissions</h2>
+                        <p>We invite submissions of original research papers, case studies, and reviews from all fields including Engineering, Information Technology, Business Studies, and more. Selected papers will be considered for publication as part of our IMRC-2025 journal edition.</p>
+                    </div>
+
+                    <h3 style="color: #FF7601; margin-top: 30px; margin-bottom: 20px;">Event Highlights</h3>
+                    <p style="margin-bottom: 20px;">The colloquium successfully facilitated knowledge sharing and idea exchange among participants from around the world. The virtual format via Microsoft Teams ensured global accessibility and participation, breaking geographical barriers and enabling diverse research communities to connect and collaborate.</p>
+
+                    <div class="highlight-box" style="margin: 30px 0;">
+                        <h3>Research Excellence</h3>
+                        <p>The event showcased cutting-edge research that addresses real-world challenges facing our communities and industries. Participants presented innovative solutions and methodologies across various disciplines, contributing to the advancement of knowledge and practical applications.</p>
+                    </div>
+
+                    <h3 style="color: #FF7601; margin-top: 30px; margin-bottom: 20px;">Key Achievements</h3>
+                    <div style="margin: 20px 0;">
+                        <ul style="margin-left: 30px; line-height: 1.8;">
+                            <li><strong>Global Participation:</strong> Researchers from multiple countries participated virtually</li>
+                            <li><strong>Multidisciplinary Approach:</strong> Presentations covered various academic and industry sectors</li>
+                            <li><strong>Industry-Academia Collaboration:</strong> Enhanced partnerships between educational institutions and industry</li>
+                            <li><strong>Knowledge Exchange:</strong> Facilitated meaningful discussions on contemporary research challenges</li>
+                            <li><strong>Publication Opportunities:</strong> Selected papers considered for publication in our peer-reviewed journal</li>
+                            <li><strong>Networking:</strong> Established research collaborations and academic partnerships</li>
+                        </ul>
+                    </div>
+
+                    <h3 style="color: #FF7601; margin-top: 30px; margin-bottom: 20px;">Research Areas Covered</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 20px 0;">
+                        <div style="background: #f0f9ff; padding: 15px; border-radius: 8px; border-left: 4px solid #0ea5e9;">
+                            <h4 style="color: #0c4a6e; margin-bottom: 8px;">Engineering Sciences</h4>
+                            <p style="color: #64748b; font-size: 0.9em;">Civil, Mechanical, Electrical, Chemical Engineering</p>
+                        </div>
+                        <div style="background: #f0fdf4; padding: 15px; border-radius: 8px; border-left: 4px solid #22c55e;">
+                            <h4 style="color: #14532d; margin-bottom: 8px;">Information Technology</h4>
+                            <p style="color: #64748b; font-size: 0.9em;">Computer Science, Data Analytics, AI, Cybersecurity</p>
+                        </div>
+                        <div style="background: #fefce8; padding: 15px; border-radius: 8px; border-left: 4px solid #eab308;">
+                            <h4 style="color: #713f12; margin-bottom: 8px;">Business Studies</h4>
+                            <p style="color: #64748b; font-size: 0.9em;">Management, Finance, Marketing, Entrepreneurship</p>
+                        </div>
+                        <div style="background: #fdf2f8; padding: 15px; border-radius: 8px; border-left: 4px solid #ec4899;">
+                            <h4 style="color: #831843; margin-bottom: 8px;">Social Sciences</h4>
+                            <p style="color: #64748b; font-size: 0.9em;">Education, Psychology, Sociology, Applied Sciences</p>
+                        </div>
+                        <div style="background: #f3e8ff; padding: 15px; border-radius: 8px; border-left: 4px solid #a855f7;">
+                            <h4 style="color: #581c87; margin-bottom: 8px;">Environmental Studies</h4>
+                            <p style="color: #64748b; font-size: 0.9em;">Sustainability, Climate Change, Green Technology</p>
+                        </div>
+                        <div style="background: #fef3c7; padding: 15px; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                            <h4 style="color: #92400e; margin-bottom: 8px;">Interdisciplinary Research</h4>
+                            <p style="color: #64748b; font-size: 0.9em;">Cross-sector studies, Innovation, Applied Research</p>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box" style="margin: 30px 0;">
+                        <h3>Publication Process</h3>
+                        <p>All submitted research papers undergo a rigorous peer-review process to maintain the highest academic standards. Selected high-quality papers are considered for publication as part of our IMRC-2025 journal edition, ensuring wide dissemination of valuable research contributions to the global academic community.</p>
+                    </div>
+
+                    <h3 style="color: #FF7601; margin-top: 30px; margin-bottom: 20px;">Future Collaborations</h3>
+                    <p style="margin-bottom: 20px;">Based on the success of IMRC-2025, we continue to welcome research collaborations and academic partnerships throughout the year. The event has established a foundation for ongoing knowledge exchange and collaborative research initiatives that address contemporary challenges across multiple disciplines.</p>
+
+                    <div style="background: #eff6ff; padding: 25px; border-radius: 10px; margin: 30px 0; text-align: center;">
+                        <h3 style="color: #081E3F; margin-bottom: 15px;">Thank You to All Participants</h3>
+                        <p style="color: #475569; font-size: 1.1em;">We extend our sincere appreciation to all researchers, academicians, and industry professionals who participated in IMRC-2025. Your valuable contributions have enriched the global research community and advanced knowledge across multiple disciplines.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Us Page -->
+        <div id="about-us" class="page">
+            <div class="content-area">
+                <h1 style="color: #081E3F; margin-bottom: 30px;">About Us</h1>
+                
+                <div style="text-align: justify; line-height: 1.8;">
+                    <h3 style="color: #FF7601; margin-top: 30px; margin-bottom: 20px;">University Overview</h3>
+                    <p style="margin-bottom: 20px;">The University of Technology and Applied Sciences-Shinas, formerly Shinas College of Technology (ShCT), is located in the Wilayat of Shinas in the Governorate of Batinah, about 69 kms from the city of Sohar, in the Sultanate of Oman. The university is a public institution catering to higher educational needs of Omani youths. It offers programs leading to diploma, advanced diploma and bachelor in the fields of Engineering, Information Technology and Business Studies.</p>
+
+                    <h3 style="color: #FF7601; margin-top: 30px; margin-bottom: 20px;">History and Growth</h3>
+                    <p style="margin-bottom: 20px;">The institution was established in December 2005 under the name of Shinas College of Technology. In 2020, a Royal decree transferred the colleges of technology into a university status. It started with 550 students and 15 staff to reach now around 3500 students and around 400 staff. The University of Technology and Applied Sciences at Shinas has undergone rapid growth, offering programs to suit the market needs.</p>
+
+                    <div class="highlight-box" style="margin: 30px 0;">
+                        <h3>Academic Excellence</h3>
+                        <p>In the previous academic year 2019/2020, we have introduced new approach for curriculum and increased the number of books at our library and made available thousands of electronic books and millions of research Articles for our students and staff. The university is asserting itself as a progressive, forward looking academic institution in Oman.</p>
+                    </div>
+
+                    <h3 style="color: #FF7601; margin-top: 30px; margin-bottom: 20px;">Student Achievements</h3>
+                    <p style="margin-bottom: 20px;">The level of students' participation in national and international competitions and award-wining projects has witnessed a significant increase from the previous year. We represented the Sultanate in Huawei competition for the third consecutive years in China and we managed to double research funds from The Research Council.</p>
+
+                    <div class="highlight-box" style="margin: 30px 0;">
+                        <h3>Community Engagement</h3>
+                        <p>Our Courses and workshops offered to the community and industry reached more than a thousand beneficiaries, an increase of around 50% from the previous year. We provided courses in different fields, English learning, network security, business development, industrial revolution and many others. We pride our self in our sustainable relationship with the community and industry.</p>
+                    </div>
+
+                    <h3 style="color: #FF7601; margin-top: 30px; margin-bottom: 20px;">Key Statistics</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 20px 0;">
+                        <div style="background: #eff6ff; padding: 20px; border-radius: 10px; text-align: center; border-left: 4px solid #3b82f6;">
+                            <h4 style="color: #081E3F; font-size: 2em; margin-bottom: 10px;">3500+</h4>
+                            <p style="color: #64748b;">Students</p>
+                        </div>
+                        <div style="background: #eff6ff; padding: 20px; border-radius: 10px; text-align: center; border-left: 4px solid #3b82f6;">
+                            <h4 style="color: #081E3F; font-size: 2em; margin-bottom: 10px;">400+</h4>
+                            <p style="color: #64748b;">Staff Members</p>
+                        </div>
+                        <div style="background: #eff6ff; padding: 20px; border-radius: 10px; text-align: center; border-left: 4px solid #3b82f6;">
+                            <h4 style="color: #081E3F; font-size: 2em; margin-bottom: 10px;">2005</h4>
+                            <p style="color: #64748b;">Established</p>
+                        </div>
+                        <div style="background: #eff6ff; padding: 20px; border-radius: 10px; text-align: center; border-left: 4px solid #3b82f6;">
+                            <h4 style="color: #081E3F; font-size: 2em; margin-bottom: 10px;">1000+</h4>
+                            <p style="color: #64748b;">Community Beneficiaries</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Publication Policy Page -->
+        <div id="publication-policy" class="page">
+            <div class="content-area">
+                <h1 style="color: #081E3F; margin-bottom: 30px;">Publication Policy</h1>
+                
+                <h3 style="color: #FF7601; margin-top: 30px;">1. Scope and Objectives</h3>
+                <p>Our journal aims to publish high-quality, original research across multiple disciplines. We welcome theoretical, empirical, and applied research that contributes to the advancement of knowledge in various fields including but not limited to engineering, sciences, humanities, and business studies.</p>
+
+                <h3 style="color: #FF7601; margin-top: 30px;">2. Manuscript Requirements</h3>
+                <p>All submissions must be original work that has not been published elsewhere or is under consideration for publication in another journal. Manuscripts should be written in clear, concise English and follow the prescribed formatting guidelines.</p>
+
+                <h3 style="color: #FF7601; margin-top: 30px;">3. Peer Review Process</h3>
+                <p>All submitted manuscripts undergo a rigorous double-blind peer review process. Papers are initially screened by the editorial team and then sent to at least two independent reviewers who are experts in the relevant field.</p>
+
+                <h3 style="color: #FF7601; margin-top: 30px;">4. Ethical Standards</h3>
+                <p>Authors must adhere to the highest ethical standards. Plagiarism, data fabrication, and duplicate submission are strictly prohibited. All research involving human subjects must have appropriate ethical approval.</p>
+
+                <h3 style="color: #FF7601; margin-top: 30px;">5. Open Access Policy</h3>
+                <p>We are committed to making research freely available to the global community. Published articles will be made available under an open access license, ensuring wide dissemination of scholarly work.</p>
+
+                <div class="highlight-box" style="margin-top: 30px;">
+                    <h3>Partner Journal Information</h3>
+                    <p>Please click on the link below for further details about our partnering journal and additional publication opportunities.</p>
+                    <a href="#" class="external-link">Visit Partner Journal Website</a>
+                    <p style="margin-top: 15px; font-size: 0.9em; color: #666;">
+                        <em>Note: Replace the "#" in the link above with your actual partner journal URL</em>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Authors' Guidelines Page -->
+        <div id="authors-guidelines" class="page">
+            <div class="content-area">
+                <h1 style="color: #081E3F; margin-bottom: 30px;">Authors' Guidelines</h1>
+                
+                <h3 style="color: #FF7601; margin-top: 30px;">1. Manuscript Preparation</h3>
+                <p><strong>Format:</strong> Use Microsoft Word format (.docx). Papers should be double-spaced with 12-point Times New Roman font and 1-inch margins on all sides.</p>
+                <p><strong>Length:</strong> Research papers should be between 6,000-8,000 words including references. Short communications should be 2,000-3,000 words.</p>
+
+                <h3 style="color: #FF7601; margin-top: 30px;">2. Manuscript Structure</h3>
+                <p><strong>Title Page:</strong> Include manuscript title, author names, affiliations, corresponding author's contact information, and acknowledgments.</p>
+                <p><strong>Abstract:</strong> 250-300 words summarizing the purpose, methodology, key findings, and conclusions.</p>
+                <p><strong>Keywords:</strong> Provide 4-6 keywords that accurately represent the content.</p>
+                <p><strong>Main Text:</strong> Organize as Introduction, Literature Review, Methodology, Results, Discussion, and Conclusion.</p>
+
+                <h3 style="color: #FF7601; margin-top: 30px;">3. Citations and References</h3>
+                <p>Use APA 7th edition style for all citations and references. Ensure all cited works are included in the reference list and vice versa.</p>
+
+                <h3 style="color: #FF7601; margin-top: 30px;">4. Figures and Tables</h3>
+                <p>All figures and tables should be clearly labeled and referenced in the text. Provide high-resolution images (minimum 300 DPI) for figures.</p>
+
+                <h3 style="color: #FF7601; margin-top: 30px;">5. AI Policy</h3>
+                <p><strong>Use of Artificial Intelligence:</strong> Authors must disclose any use of AI tools (such as ChatGPT, Claude, or other generative AI systems) in the preparation of their manuscript. This includes text generation, data analysis, code development, or image creation.</p>
+                <p><strong>Disclosure Requirements:</strong> Any AI assistance must be clearly stated in the acknowledgments section, specifying which AI tools were used and for what purpose (e.g., "ChatGPT was used to improve the English language and readability of this manuscript").</p>
+                <p><strong>Limitations:</strong> AI-generated content cannot be listed as an author. Authors remain fully responsible for the accuracy, originality, and integrity of their work, regardless of AI assistance used.</p>
+                <p><strong>Prohibited Uses:</strong> Using AI to fabricate data, create fake references, or generate content that misrepresents research findings is strictly prohibited and will result in immediate rejection.</p>
+
+                <h3 style="color: #FF7601; margin-top: 30px;">6. Submission Checklist</h3>
+                <p>Before submission, ensure you have:</p>
+                <ul style="margin-left: 30px; margin-top: 10px;">
+                    <li>Followed all formatting guidelines</li>
+                    <li>Included all required sections</li>
+                    <li>Checked for grammatical and spelling errors</li>
+                    <li>Verified all citations and references</li>
+                    <li>Obtained necessary permissions for copyrighted material</li>
+                </ul>
+
+                <div class="highlight-box" style="margin-top: 30px;">
+                    <h3>Important Note</h3>
+                    <p>Manuscripts not following these guidelines may be returned to authors without review. Please ensure compliance with all requirements before submission.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submit Paper Page -->
+        <div id="submit-paper" class="page">
+            <div class="content-area">
+                <h1 style="color: #081E3F; margin-bottom: 30px;">Submit Your Paper</h1>
+                
+                <div class="highlight-box">
+                    <h3>Ready to Submit?</h3>
+                    <p>Before submitting your paper, please ensure you have read and understood our publication policy and authors' guidelines. Your manuscript should be complete and follow all formatting requirements.</p>
+                </div>
+
+                <h3 style="color: #FF7601; margin-top: 30px;">Submission Process</h3>
+                <p><strong>Step 1:</strong> Prepare your manuscript according to our authors' guidelines</p>
+                <p><strong>Step 2:</strong> Complete the submission form below</p>
+                <p><strong>Step 3:</strong> Upload your manuscript and any supplementary materials</p>
+                <p><strong>Step 4:</strong> Submit and await confirmation email</p>
+
+                <h3 style="color: #FF7601; margin-top: 30px;">Required Documents</h3>
+                <ul style="margin-left: 30px; margin-top: 10px;">
+                    <li>Complete manuscript (MS Word format)</li>
+                    <li>Author declaration form</li>
+                    <li>Copyright transfer agreement</li>
+                    <li>Supplementary materials (if applicable)</li>
+                </ul>
+
+                <h3 style="color: #FF7601; margin-top: 30px;">Important Deadlines</h3>
+                <p><strong>Abstract Submission:</strong> March 15, 2025</p>
+                <p><strong>Full Paper Submission:</strong> April 15, 2025</p>
+                <p><strong>Notification of Acceptance:</strong> May 1, 2025</p>
+                <p><strong>Colloquium Date:</strong> May 14, 2025</p>
+
+                <div class="highlight-box" style="margin-top: 30px;">
+                    <h3>Online Submission Form</h3>
+                    <p>Click the link below to access our online submission system. You will need to create an account if you haven't already done so.</p>
+                    <a href="#" class="external-link">Access Submission Form (MS Forms)</a>
+                    <p style="margin-top: 15px; font-size: 0.9em; color: #666;">
+                        <em>Note: Replace the "#" in the link above with your actual MS Forms submission link</em>
+                    </p>
+                </div>
+
+                <h3 style="color: #FF7601; margin-top: 30px;">Contact for Support</h3>
+                <p>If you encounter any issues during the submission process, please contact us at <strong>suneel.kumar@utas.edu.om</strong></p>
+            </div>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contact" class="page">
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                
+                <div class="contact-item">
+                    <h3><i class="fas fa-university"></i> University Details</h3>
+                    <p><strong>University:</strong> University of Technology and Applied Sciences - Shinas</p>
+                    <p><strong>Campus:</strong> Shinas Campus</p>
+                    <p><strong>Country:</strong> Sultanate of Oman</p>
+                </div>
+
+                <div class="contact-item">
+                    <h3><i class="fas fa-map-marker-alt"></i> Address</h3>
+                    <p>PO Box 77, Al-Aqur</p>
+                    <p>Shinas, Sultanate of Oman</p>
+                </div>
+
+                <div class="contact-item">
+                    <h3><i class="fas fa-envelope"></i> Email Contact</h3>
+                    <p><strong>Primary Contact:</strong> suneel.kumar@utas.edu.om</p>
+                    <p><strong>Department:</strong> Research & Development</p>
+                </div>
+
+                <div class="contact-item">
+                    <h3><i class="fas fa-calendar-alt"></i> Event Information</h3>
+                    <p><strong>Event:</strong> International Multidisciplinary Research Colloquium - 2025</p>
+                    <p><strong>Date:</strong> May 14, 2025</p>
+                    <p><strong>Platform:</strong> Microsoft Teams (Virtual)</p>
+                </div>
+
+                <div class="contact-item">
+                    <h3><i class="fas fa-clock"></i> Office Hours</h3>
+                    <p><strong>Sunday - Thursday:</strong> 8:00 AM - 4:00 PM</p>
+                    <p><strong>Friday - Saturday:</strong> Closed</p>
+                    <p><em>Note: Office hours follow Omani working calendar</em></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (consistent across all pages) -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>CONTACT</h3>
+            <div class="footer-item">
+                <i class="fas fa-envelope"></i>
+                suneel.kumar@utas.edu.om | University of Technology and Applied Sciences
+            </div>
+            <div class="footer-item">
+                <i class="fas fa-map-marker-alt"></i>
+                PO Box 77, Al-Aqur, Shinas, Sultanate of Oman
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        function toggleMobileMenu() {
+            const navTabs = document.getElementById('navTabs');
+            navTabs.classList.toggle('show');
+        }
+
+        // Slideshow functionality with fixed container
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+            });
+            if (slides[index]) {
+                slides[index].classList.add('active');
+            }
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+        
+        // Auto-advance slides every 4 seconds (1.5s transition + 2.5s display)
+        if (slides.length > 0) {
+            setInterval(nextSlide, 4000);
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-tab a').forEach(link => {
+            link.addEventListener('click', () => {
+                const navTabs = document.getElementById('navTabs');
+                navTabs.classList.remove('show');
+            });
+        });
+    </script>
+</body>
+</html>
