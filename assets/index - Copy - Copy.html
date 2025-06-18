@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UTAS - Shinas | IMRC 2025</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: #f9f9f9;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    header img {
+      height: 60px;
+      margin-right: 15px;
+    }
+
+    header h1 {
+      margin: 10px 0 5px;
+      font-size: 24px;
+      color: #333;
+    }
+
+    header h2 {
+      margin: 10px 0 5px;
+      font-size: 20px;
+      color: #555;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 16px;
+      color: #777;
+    }
+
+    .navbar {
+      display: flex;
+      background-color: #007BFF;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .navbar a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .navbar a:hover {
+      background-color: #0056b3;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 20px;
+    }
+
+    .sidebar {
+      width: 200px;
+      margin-right: 20px;
+      flex-shrink: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      margin-bottom: 10px;
+      text-align: center;
+      border-radius: 4px;
+    }
+
+    .sidebar a:hover {
+      background-color: #0056b3;
+    }
+
+    .main-content {
+      flex: 1;
+      background: #fff;
+      padding: 20px;
+      border-radius: 4px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      min-width: 300px;
+    }
+
+    .slideshow-container {
+      position: relative;
+      text-align: center;
+      margin: 20px auto;
+      max-width: 90%;
+      height: 400px;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+
+    footer .contact-icon {
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.jpg" alt="UTAS Logo" />
+    <div>
+      <h1>University of Technology and Applied Sciences - Shinas</h1>
+      <h2>International Multidisciplinary Research Colloquium - 2025</h2>
+      <p>May 14, 2025 via MS Teams</p>
+    </div>
+  </header>
+
+<nav class="navbar">
+  <a href="#" onclick="loadContent('home')">Home</a>
+  <a href="#" onclick="loadContent('about')">About Us</a>
+  <a href="#" onclick="loadContent('imrc')">IMRC-2025</a>
+  <a href="#" onclick="loadContent('policy')">Publication Policy</a>
+  <a href="#" onclick="loadContent('guidelines')">Authors' Guidelines</a>
+  <a href="#" onclick="loadContent('submit')">Submit Your Paper</a>
+  <a href="#" onclick="loadContent('gallery')">Photo Gallery</a>
+  <a href="#" onclick="loadContent('contact')">Contact</a>
+</nav>
+
+  <div class="main-content" id="main-content">
+  <h3>Call for Papers</h3>
+  <p>We invite submissions for publication in our journal as part of the International Multidisciplinary Research Colloquium - 2025. Please refer to the publication policy and authors' guidelines before submitting your paper. We look forward to your valuable contributions!</p>
+</div>
+
+  </div>
+
+  <!-- Slideshow -->
+  <div class="slideshow-container">
+    <a href="https://github.com/suneelutas/imrc-2025-oman-publication/commit/f09fe83a67524f4f09c3ec843c2724b963ce4c47" target="_blank" class="slide active">
+      <img src="image1.jpg" alt="Image 1">
+    </a>
+    <a href="https://github.com/suneelutas/imrc-2025-oman-publication/commit/f09fe83a67524f4f09c3ec843c2724b963ce4c47" target="_blank" class="slide">
+      <img src="image2.jpg" alt="Image 2">
+    </a>
+    <a href="https://github.com/suneelutas/imrc-2025-oman-publication/commit/f09fe83a67524f4f09c3ec843c2724b963ce4c47" target="_blank" class="slide">
+      <img src="image3.jpg" alt="Image 3">
+    </a>
+  </div>
+
+  <footer>
+    <div>CONTACT</div>
+    <div>
+      <span class="contact-icon">📧</span>suneel.kumar@utas.edu.om | University of Technology and Applied Sciences
+    </div>
+    <div>PO Box 77, Al-Aqur, Shinas, Sultanate of Oman</div>
+  </footer>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 4000);
+  </script>
+
+<script>
+function loadContent(page) {
+  let content = '';
+if (page === 'home') {
+    content = `
+      	<h3>Call for Papers</h3>
+  	<p>We invite submissions for publication in our journal as part of the International Multidisciplinary Research Colloquium - 2025. Please refer to the publication policy and authors' guidelines before submitting your paper. We look forward to your valuable contributions!</p>
+   `;
+  }
+
+  else if (page === 'about') {
+    content = `
+      <h3>About Us</h3>
+      <p>The University of Technology and Applied Sciences-Shinas, formerly Shinas College of Technology (ShCT), is located in the Wilayat of Shinas in the Governorate of Batinah, about 69 kms from the city of Sohar, in the Sultanate of Oman. The university is a public institution catering to higher educational needs of Omani youths. It offers programs leading to diploma, advanced diploma and bachelor in the fields of Engineering, Information Technology and Business Studies.</p>
+      <p>The institution was established in December 2005 under the name of Shinas College of Technology. In 2020, a Royal decree transferred the colleges of technology into a university status. It started with 550 students and 15 staff to reach now around 3500 students and around 400 staff. The University of Technology and Applied Sciences at Shinas has undergone rapid growth, offering programs to suit the market needs.</p>
+      <p>In the previous academic year 2019/2020, we have introduced new approach for curriculum and increased the number of books at our library and made available thousands of electronic books and millions of research Articles for our students and staff. The university is asserting itself as a progressive, forward looking academic institution in Oman. The level of students’ participation in national and international competitions and award-wining projects has witnessed a significant increase from the previous year. We represented the Sultanate in Huawei competition for the third consecutive years in China and we managed to double research funds from The Research Council.</p>
+      <p>Our Courses and workshops offered to the community and industry reached more than a thousand beneficiaries, an increase of around 50% from the previous year. We provided courses in different fields, English learning, network security, business development, industrial revolution and many others. We pride our self in our sustainable relationship with the community and industry.</p>
+    `;
+  }
+
+  else if (page === 'imrc') {
+    content = `
+      <h3>IMRC-2025</h3>
+      <p>The International Multidisciplinary Research Colloquium (IMRC-2025) hosted by University of Technology and Applied Sciences - Shinas will bring together researchers, academicians, and industry professionals to share knowledge, exchange ideas, and present innovative research across multiple disciplines.</p>
+      <p>The colloquium will be held on <strong>May 14, 2025</strong> via MS Teams. It aims to foster collaboration and promote cutting-edge research that addresses real-world challenges.</p>
+      <p>We invite submissions of original research papers, case studies, and reviews from all fields including Engineering, Information Technology, Business Studies, and more. Selected papers will be considered for publication as part of our IMRC-2025 journal edition.</p>
+    `;
+  }
+
+  else if (page === 'policy') {
+    content = `<h3>Publication Policy</h3><p>The IMRC-2025 publication policy ensures the integrity, originality, and quality of all submissions. Authors are expected to submit unpublished, original work that has not been simultaneously submitted elsewhere. All papers will undergo a double-blind peer review process. The editorial team reserves the right to reject submissions that do not align with the scope of the journal or fail to meet the required quality standards.
+Authors must adhere to ethical guidelines, including appropriate citation and avoidance of plagiarism. Detailed publication policies, including copyright and licensing terms, will be provided upon acceptance.
+.</p>`;
+  }
+
+  else if (page === 'guidelines') {
+    content = `<h3>Authors' Guidelines</h3><p>Details about authors' guidelines will be displayed here.</p>`;
+  }
+
+  else if (page === 'submit') {
+    content = `<h3>Submit Your Paper</h3><p>Instructions for submitting your paper will be displayed here.</p>`;
+  }
+
+  else if (page === 'gallery') {
+    content = `<h3>Photo Gallery</h3><p>Photo gallery content will be displayed here.</p>`;
+  }
+
+  else if (page === 'contact') {
+    content = `<h3>Contact</h3><p>Email: suneel.kumar@utas.edu.om</p><p>PO Box 77, Al-Aqur, Shinas, Sultanate of Oman</p>`;
+  }
+
+  document.getElementById('main-content').innerHTML = content;
+}
+</script>
+
+</body>
+</html>
